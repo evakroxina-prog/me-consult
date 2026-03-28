@@ -56,8 +56,8 @@
   "url": "https://marketexpert.cz",
   "logo": "https://marketexpert.cz/logo.png",
   "image": "https://marketexpert.cz/og-image-consult.jpg",
-  "telephone": "",
-  "email": "info@marketexpert.cz",
+  "telephone": "+420705995770",
+  "email": "contact@marketexpert.cz",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Praha",
@@ -69,7 +69,7 @@
     { "@type": "Country", "name": "Ukraine" }
   ],
   "serviceType": "Marketing Consulting",
-  "priceRange": "$150 – $990",
+  "priceRange": "€100 – €949",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
@@ -85,22 +85,22 @@
         "@type": "Offer",
         "name": "Разбор ситуации",
         "description": "Разовая консультация 1-на-1, 90 минут. Конкретный разбор вашей ситуации и чек-лист действий.",
-        "price": "150",
-        "priceCurrency": "USD"
+        "price": "100",
+        "priceCurrency": "EUR"
       },
       {
         "@type": "Offer",
         "name": "Маркетинговый план",
         "description": "4 сессии в месяц + поддержка в мессенджере. Полная маркетинговая стратегия.",
-        "price": "450",
-        "priceCurrency": "USD"
+        "price": "350",
+        "priceCurrency": "EUR"
       },
       {
         "@type": "Offer",
         "name": "Сопровождение",
         "description": "12 сессий за 3 месяца. Стратегия, тактика и контроль внедрения.",
-        "price": "990",
-        "priceCurrency": "USD"
+        "price": "949",
+        "priceCurrency": "EUR"
       }
     ]
   },
@@ -111,9 +111,7 @@
 </script>
 
 <!-- ═══════════════════════════════════════════
-     Google Analytics 4 (GA4)
-     ВАЖНО: замените G-XXXXXXXXXX на ваш Measurement ID
-     Найти: GA4 → Admin → Data Streams → ваш поток → Measurement ID
+     Google Analytics 4 — G-SPKHXMCQGM
 ═══════════════════════════════════════════ -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SPKHXMCQGM"></script>
 <script>
@@ -124,52 +122,10 @@
     page_title: 'Маркетинговые консультации — Market Expert',
     page_location: window.location.href
   });
-
-  // Конверсионные события
-  function trackFormSubmit() {
-    gtag('event', 'generate_lead', {
-      event_category: 'form',
-      event_label: 'consult_booking',
-      value: 150
-    });
-    gtag('event', 'conversion', {
-      send_to: 'G-SPKHXMCQGM'
-    });
-  }
 </script>
 
-<!-- ═══════════════════════════════════════════
-     Meta Pixel (Facebook / Instagram)
-     ВАЖНО: замените YOUR_PIXEL_ID на ваш Pixel ID
-     Найти: Meta Ads Manager → Events Manager → ваш пиксель → Pixel ID
-═══════════════════════════════════════════ -->
-<script>
-!function(f,b,e,v,n,t,s){
-  if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)
-}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-fbq('init', 'YOUR_PIXEL_ID');
-fbq('track', 'PageView');
-
-// Конверсионное событие — отправка формы
-function trackMetaLead() {
-  fbq('track', 'Lead', {
-    content_name: 'consult_booking',
-    content_category: 'marketing_consultation',
-    value: 150,
-    currency: 'USD'
-  });
-}
-</script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1" alt="">
-</noscript>
+<!-- HubSpot Forms -->
+<script src="https://js-eu1.hsforms.net/forms/embed/144885667.js" defer></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
@@ -247,7 +203,7 @@ nav {
   padding: 100px 48px 60px;
 }
 .hero-card {
-  background: var(--white); max-width: 560px;
+  background: var(--white); width: min(680px, 55%);
   padding: 52px 52px 48px;
   border-left: 5px solid var(--orange);
   box-shadow: 0 20px 60px rgba(0,0,0,0.28);
@@ -332,7 +288,7 @@ section { padding: 80px 48px; }
 
 /* ── FOR WHOM ── */
 .for-whom { background: var(--bg-light); }
-.for-whom-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: start; }
+.for-whom-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: center; }
 .whom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .whom-card {
   background: var(--white); border: 1px solid var(--border);
@@ -404,7 +360,7 @@ section { padding: 80px 48px; }
 .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .plan {
   background: var(--white); border: 1px solid var(--border);
-  padding: 36px 30px 32px; position: relative; transition: box-shadow 0.3s, transform 0.3s;
+  padding: 36px 30px 32px; position: relative; transition: box-shadow 0.3s, transform 0.3s; display: flex; flex-direction: column;
 }
 .plan:hover { box-shadow: 0 12px 40px rgba(107,31,58,0.12); transform: translateY(-4px); }
 .plan.featured { border: 2px solid var(--burg); background: var(--burg); color: var(--white); }
@@ -426,7 +382,7 @@ section { padding: 80px 48px; }
 .plan.featured .plan-desc { color: rgba(255,255,255,0.6); }
 .plan-divider { height: 1px; background: var(--border); margin-bottom: 22px; }
 .plan.featured .plan-divider { background: rgba(255,255,255,0.2); }
-.plan-features { list-style: none; margin-bottom: 30px; }
+.plan-features { list-style: none; margin-bottom: 30px; flex: 1; }
 .plan-features li {
   font-size: 13px; color: var(--text-mid); padding: 9px 0;
   border-bottom: 1px solid var(--border); display: flex; gap: 10px; align-items: flex-start;
@@ -441,12 +397,14 @@ section { padding: 80px 48px; }
 .agency-inner {
   background: var(--white); border: 1px solid var(--border);
   border-left: 5px solid var(--orange);
-  display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: start;
 }
 .agency-left { padding: 48px 40px; }
+.agency-left .section-label { margin-bottom: 8px; }
 .agency-left h2 { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 800; color: var(--text-dark); margin-bottom: 14px; line-height: 1.3; }
 .agency-left h2 span { color: var(--burg); }
 .agency-left p { font-size: 14px; color: var(--text-mid); line-height: 1.75; margin-bottom: 16px; }
+.agency-right { background: var(--burg); padding: 48px 40px; display: flex; flex-direction: column; justify-content: flex-start; }
 .agency-compare { display: flex; flex-direction: column; gap: 10px; margin: 20px 0 28px; }
 .compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .compare-cell {
@@ -456,11 +414,8 @@ section { padding: 80px 48px; }
 .compare-cell.bad { background: #fdf0f0; color: #a33; border-left: 3px solid #e88; }
 .compare-cell.good { background: #f0faf4; color: #1a7a4a; border-left: 3px solid var(--orange); font-weight: 600; }
 .compare-head { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); margin-bottom: 2px; }
-.agency-right {
-  background: var(--burg); padding: 48px 40px;
-  display: flex; flex-direction: column; justify-content: center;
-}
-.agency-right h3 { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 20px; }
+/* section-label высота ~12px + margin 8px + h2 margin-bottom 14px ≈ 34px — столько добавляем h3 */
+.agency-right h3 { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 20px; margin-top: 34px; }
 .agency-points { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
 .agency-point { display: flex; gap: 14px; align-items: flex-start; }
 .ap-num {
@@ -474,7 +429,7 @@ section { padding: 80px 48px; }
 
 /* ── BOOKING ── */
 .booking { background: var(--white); }
-.booking-inner { display: grid; grid-template-columns: 5fr 6fr; gap: 64px; align-items: start; }
+.booking-inner { display: grid; grid-template-columns: 5fr 6fr; gap: 64px; align-items: center; }
 .booking-perks { margin-top: 36px; display: flex; flex-direction: column; gap: 20px; }
 .perk { display: flex; gap: 16px; align-items: flex-start; }
 .perk-num {
@@ -521,21 +476,98 @@ footer {
 .footer-logo em { font-style: normal; font-weight: 400; color: rgba(255,255,255,0.6); }
 footer p { font-size: 12px; color: rgba(255,255,255,0.5); }
 
+/* ── HUBSPOT MODAL ── */
+.hs-modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 999;
+  background: rgba(20,10,20,0.72); backdrop-filter: blur(4px);
+  align-items: center; justify-content: center; padding: 24px;
+}
+.hs-modal-overlay.open { display: flex; }
+.hs-modal-box {
+  background: var(--white); border-top: 5px solid var(--burg);
+  max-width: 560px; width: 100%; padding: 40px;
+  position: relative; max-height: 90vh; overflow-y: auto;
+  animation: fadeUp 0.3s ease both;
+}
+.hs-modal-close {
+  position: absolute; top: 14px; right: 18px;
+  font-size: 22px; color: var(--text-light); cursor: pointer;
+  background: none; border: none; line-height: 1;
+  transition: color 0.2s;
+}
+.hs-modal-close:hover { color: var(--burg); }
+.hs-modal-title {
+  font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 800;
+  color: var(--burg); margin-bottom: 6px;
+}
+.hs-modal-sub { font-size: 13px; color: var(--text-light); margin-bottom: 24px; }
+
 /* ── ANIM ── */
 @keyframes fadeUp { from { opacity:0; transform:translateY(24px);} to {opacity:1; transform:translateY(0);} }
 
-/* ── RESPONSIVE ── */
+/* ── SCROLL ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* staggered children */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.stagger.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay: 0s; }
+.stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay: 0.1s; }
+.stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay: 0.2s; }
+.stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay: 0.3s; }
+.stagger.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay: 0.4s; }
+.stagger.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay: 0.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .stagger > * { opacity:1 !important; transform:none !important; transition: none !important; }
+}
+
+/* ── PLAN FEATURES — bonus badges ── */
+.plan-features li.core::before { content: '✓'; color: var(--orange); font-weight: 700; flex-shrink: 0; }
+.plan-features li.bonus { opacity: 0.9; }
+.plan-features li.bonus::before { content: none; }
+.bonus-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--orange); color: #fff;
+  padding: 2px 7px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+}
+.plan.featured .bonus-badge { background: rgba(255,255,255,0.25); color: #fff; }
+.plan-features li { align-items: flex-start; }
+
+/* ── RESPONSIVE — улучшенное масштабирование ── */
+@media (max-width: 1200px) {
+  .for-whom-inner { gap: 40px; }
+  .agency-inner { gap: 0; }
+}
 @media (max-width: 960px) {
   nav { padding: 0 24px; }
   .nav-links { display: none; }
   section, .agency-block { padding: 56px 24px; }
   .hero { padding: 100px 24px 48px; }
-  .hero-card { padding: 36px 28px 32px; max-width: 100%; }
-  .stats-bar { grid-template-columns: 1fr 1fr; }
-  .trust-bar { padding: 16px 24px; gap: 16px; }
+  .hero-card { width: 100% !important; padding: 36px 28px 32px; }
   .for-whom-inner { grid-template-columns: 1fr; gap: 36px; }
-  .whom-grid { grid-template-columns: 1fr; }
-  .problems-grid { grid-template-columns: 1fr; }
+  .whom-grid { grid-template-columns: 1fr 1fr; }
+  .problems-grid { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: 1fr; gap: 16px; }
   .step::after { display: none; }
   .plans { grid-template-columns: 1fr; }
@@ -544,6 +576,18 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.5); }
   .form-row { grid-template-columns: 1fr; }
   .compare-row { grid-template-columns: 1fr; }
   footer { flex-direction: column; gap: 10px; text-align: center; }
+}
+@media (max-width: 600px) {
+  .whom-grid { grid-template-columns: 1fr; }
+  .problems-grid { grid-template-columns: 1fr; }
+  nav { padding: 0 16px; }
+  .logo { font-size: 14px; }
+  section, .agency-block { padding: 48px 16px; }
+  .hero { padding: 88px 16px 40px; }
+  .hero-card { padding: 28px 20px 24px; }
+  .hero h1 { font-size: clamp(26px, 7vw, 36px); }
+  .plans { grid-template-columns: 1fr; }
+  footer { padding: 24px 16px; }
 }
 </style>
 </head>
@@ -566,7 +610,7 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.5); }
     <a href="#for-whom">Для кого</a>
     <a href="#process">Как работаем</a>
     <a href="#pricing">Услуги</a>
-    <a href="#booking" class="nav-cta">Записаться</a>
+    <button onclick="openModal()" class="nav-cta" style="border:none;cursor:pointer;font-family:'Montserrat',sans-serif;letter-spacing:0.05em;text-transform:uppercase;font-weight:600;font-size:13px;">Записаться</button>
   </div>
 </nav>
 
@@ -576,56 +620,22 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.5); }
     <div class="hero-label">Маркетинговые консультации · Прага</div>
     <h1>Ваш бизнес<br>не растёт?<br><span>Разберёмся вместе</span></h1>
     <p>Быстрый анализ вашей ситуации. Конкретный план для увеличения продаж. Без агентских контрактов — только результат.</p>
-    <div class="hero-problem">
-      <strong>Звучит знакомо?</strong>
-      Реклама не окупается · Клиентов мало · Не знаете, с чего начать · Стратегия не работает
-    </div>
     <div class="hero-btns">
-      <a href="#booking" class="btn-orange">Записаться на консультацию</a>
+      <button onclick="openModal()" class="btn-orange">Записаться на консультацию</button>
       <a href="#for-whom" class="btn-outline">Для кого это</a>
     </div>
   </div>
 </section>
 
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stat-item">
-    <div class="stat-num">120<sup>+</sup></div>
-    <div class="stat-label">клиентов</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">5</div>
-    <div class="stat-label">лет опыта</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">4.9<sup>★</sup></div>
-    <div class="stat-label">рейтинг</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">90</div>
-    <div class="stat-label">минут до ясности</div>
-  </div>
-</div>
-
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <span>Работаем с:</span>
-  <div class="trust-item">Малый и средний бизнес</div>
-  <div class="trust-item">Стартапы</div>
-  <div class="trust-item">Маркетологи</div>
-  <div class="trust-item">Чехия · СНГ · международные клиенты</div>
-</div>
-
 <!-- FOR WHOM -->
 <section class="for-whom" id="for-whom">
   <div class="for-whom-inner">
-    <div>
+    <div class="reveal-left">
       <div class="section-label">Для кого</div>
       <h2 class="section-title">Консультация подойдёт вам, если...</h2>
       <p class="section-sub">Неважно, какой у вас бизнес и с какой проблемой вы столкнулись — найдём решение за одну встречу.</p>
-      <a href="#booking" class="btn-orange" style="margin-top:8px">Записаться</a>
     </div>
-    <div class="whom-grid">
+    <div class="whom-grid stagger">
       <div class="whom-card">
         <div class="whom-icon">🏢</div>
         <h3>Владелец бизнеса</h3>
@@ -652,14 +662,19 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.5); }
       </div>
     </div>
   </div>
+  <div class="reveal" style="text-align:center; margin-top:40px;">
+    <button onclick="openModal()" class="btn-orange">Записаться на консультацию</button>
+  </div>
 </section>
 
 <!-- PROBLEMS -->
 <section class="problems">
-  <div class="section-label">Типичные ситуации</div>
-  <h2 class="section-title" style="color:#fff">С какими проблемами приходят</h2>
-  <p class="section-sub">Вы не первый, кто с этим сталкивается — и это решаемо.</p>
-  <div class="problems-grid">
+  <div class="reveal">
+    <div class="section-label">Типичные ситуации</div>
+    <h2 class="section-title" style="color:#fff">С какими проблемами приходят</h2>
+    <p class="section-sub">Вы не первый, кто с этим сталкивается — и это решаемо.</p>
+  </div>
+  <div class="problems-grid stagger">
     <div class="problem-card">
       <div class="problem-q">«Трачу на рекламу, но клиентов больше не становится»</div>
       <div class="problem-a">Разберём, куда уходит бюджет и какие каналы реально работают в вашей нише.</div>
@@ -685,20 +700,21 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.5); }
       <div class="problem-a">Для маркетологов — разбор кейса и свежий взгляд. Записываемся в течение 24 часов.</div>
     </div>
   </div>
-  <div class="problems-cta">
-    <p>Ваша ситуация не в списке — это не значит, что мы не справимся</p>
-    <a href="#booking" class="btn-orange">Описать свою ситуацию</a>
+  </div>
+  <div class="reveal" style="margin-top:40px;text-align:center;">
+    <p style="color:#fff;">Ваша ситуация не в списке — это не значит, что мы не справимся</p>
+    <button onclick="openModal()" class="btn-orange" style="margin-top:12px;">Описать свою ситуацию</button>
   </div>
 </section>
 
 <!-- PROCESS -->
 <section class="process" id="process">
-  <div style="margin-bottom:56px">
+  <div class="reveal" style="margin-bottom:56px">
     <div class="section-label">Как работаем</div>
     <h2 class="section-title">Три шага до результата</h2>
     <p class="section-sub">Никакой воды — только конкретные действия с измеримым результатом.</p>
   </div>
-  <div class="steps">
+  <div class="steps stagger">
     <div class="step">
       <div class="step-num">01</div>
       <h3>Диагностика</h3>
@@ -722,56 +738,56 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.5); }
 
 <!-- PRICING -->
 <section class="pricing" id="pricing">
-  <div style="margin-bottom:48px">
+  <div class="reveal" style="margin-bottom:48px">
     <div class="section-label">Форматы работы</div>
     <h2 class="section-title">Выберите свой формат</h2>
     <p class="section-sub">Подберём оптимальный вариант под вашу задачу и бюджет.</p>
   </div>
-  <div class="plans">
+  <div class="plans stagger">
     <div class="plan">
       <div class="plan-name">Разбор ситуации</div>
       <div class="plan-for">Разовая консультация</div>
-      <div class="plan-price">$150<span> / сессия</span></div>
+      <div class="plan-price">€100<span> / сессия</span></div>
       <div class="plan-desc">Для тех, кто хочет найти ответ на конкретный вопрос</div>
       <div class="plan-divider"></div>
       <ul class="plan-features">
-        <li>90-минутная сессия 1-на-1</li>
-        <li>Разбор вашей конкретной ситуации</li>
-        <li>Запись встречи + материалы</li>
-        <li>Чек-лист действий на неделю</li>
+        <li class="core">90-минутная сессия 1-на-1</li>
+        <li class="core">Разбор вашей конкретной ситуации</li>
+        <li class="bonus"><span class="bonus-badge">+ бонус</span>&nbsp; Запись встречи и материалы</li>
+        <li class="bonus"><span class="bonus-badge">+ бонус</span>&nbsp; Чек-лист действий на неделю</li>
       </ul>
-      <a href="#booking" class="btn-outline">Записаться</a>
+      <button onclick="openPlanModal('plan100')" class="btn-outline" style="width:100%;text-align:center;cursor:pointer">Записаться</button>
     </div>
     <div class="plan featured">
       <div class="plan-badge">Популярный выбор</div>
       <div class="plan-name">Маркетинговый план</div>
       <div class="plan-for">4 сессии + сопровождение</div>
-      <div class="plan-price">$450<span> / месяц</span></div>
+      <div class="plan-price">€350<span> / месяц</span></div>
       <div class="plan-desc">Для бизнеса, которому нужна системная стратегия</div>
       <div class="plan-divider"></div>
       <ul class="plan-features">
-        <li>4 сессии по 90 минут в месяц</li>
-        <li>Полный маркетинговый план</li>
-        <li>Анализ конкурентов и рынка</li>
-        <li>Поддержка в мессенджере</li>
-        <li>Разбор материалов и рекламы</li>
+        <li class="core">4 сессии по 90 минут в месяц</li>
+        <li class="core">Полный маркетинговый план</li>
+        <li class="bonus"><span class="bonus-badge">+ бонус</span>&nbsp; Анализ конкурентов и рынка</li>
+        <li class="bonus"><span class="bonus-badge">+ бонус</span>&nbsp; Поддержка в мессенджере</li>
+        <li class="bonus"><span class="bonus-badge">+ бонус</span>&nbsp; Разбор материалов и рекламы</li>
       </ul>
-      <a href="#booking" class="btn-orange">Записаться</a>
+      <button onclick="openPlanModal('plan350')" class="btn-orange" style="width:100%;text-align:center;cursor:pointer">Записаться</button>
     </div>
     <div class="plan">
       <div class="plan-name">Сопровождение</div>
       <div class="plan-for">От стратегии до результата</div>
-      <div class="plan-price">$990<span> / 3 мес</span></div>
+      <div class="plan-price">€949<span> / 3 мес</span></div>
       <div class="plan-desc">Для стартапов и бизнеса в активной фазе роста</div>
       <div class="plan-divider"></div>
       <ul class="plan-features">
-        <li>12 сессий за 3 месяца</li>
-        <li>Стратегия + тактика + контроль</li>
-        <li>Неограниченная поддержка</li>
-        <li>Анализ воронки и каналов</li>
-        <li>Адаптация плана по ходу</li>
+        <li class="core">12 сессий за 3 месяца</li>
+        <li class="core">Стратегия + тактика + контроль</li>
+        <li class="bonus"><span class="bonus-badge">+ бонус</span>&nbsp; Неограниченная поддержка</li>
+        <li class="bonus"><span class="bonus-badge">+ бонус</span>&nbsp; Анализ воронки и каналов</li>
+        <li class="bonus"><span class="bonus-badge">+ бонус</span>&nbsp; Адаптация плана по ходу</li>
       </ul>
-      <a href="#booking" class="btn-outline">Записаться</a>
+      <button onclick="openPlanModal('plan949')" class="btn-outline" style="width:100%;text-align:center;cursor:pointer">Записаться</button>
     </div>
   </div>
 </section>
@@ -794,7 +810,7 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.5); }
         </div>
         <div class="compare-row">
           <div class="compare-cell bad">Бюджет от $1500/мес</div>
-          <div class="compare-cell good">От $150 за результат</div>
+          <div class="compare-cell good">От €100 за результат</div>
         </div>
         <div class="compare-row">
           <div class="compare-cell bad">Месяц до первых шагов</div>
@@ -805,7 +821,6 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.5); }
           <div class="compare-cell good">Вы управляете процессом</div>
         </div>
       </div>
-      <a href="#booking" class="btn-orange">Поговорим о вашей ситуации</a>
     </div>
     <div class="agency-right">
       <h3>Когда консультация лучше агентства:</h3>
@@ -839,7 +854,6 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.5); }
           </div>
         </div>
       </div>
-      <a href="#booking" class="btn-orange">Записаться на консультацию</a>
     </div>
   </div>
 </div>
@@ -850,7 +864,7 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.5); }
     <div>
       <div class="section-label">Запись</div>
       <h2 class="section-title">Готовы разобраться в вашей ситуации?</h2>
-      <p class="section-sub">Оставьте заявку — свяжусь в течение 24 часов, согласуем удобное время и формат.</p>
+      <p class="section-sub">Заполните короткую форму — свяжемся в течение 24 часов, согласуем удобное время и формат.</p>
       <div class="booking-perks">
         <div class="perk">
           <div class="perk-num">1</div>
@@ -876,20 +890,147 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.5); }
       </div>
     </div>
     <div class="form-card">
-      <script src="https://js-eu1.hsforms.net/forms/embed/144885667.js" defer></script>
-<div class="hs-form-frame" data-region="eu1" data-form-id="ed8bf19a-da60-48fe-a9ed-d6cda89128ea" data-portal-id="144885667"></div>
+      <div class="form-title">Оставить заявку</div>
+      <p style="font-size:14px;color:var(--text-mid);margin-bottom:24px;">Нажмите кнопку ниже — откроется короткая форма. Это займёт меньше минуты.</p>
+      <button onclick="openModal()" class="btn-orange" style="width:100%;text-align:center;font-size:15px;padding:20px;">
+        Записаться на консультацию
+      </button>
+      <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;gap:10px;align-items:center;font-size:13px;color:var(--text-mid);">
+          <span style="color:var(--orange);font-weight:700;">✓</span> Ответ в течение 24 часов
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;font-size:13px;color:var(--text-mid);">
+          <span style="color:var(--orange);font-weight:700;">✓</span> Онлайн или в Праге
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;font-size:13px;color:var(--text-mid);">
+          <span style="color:var(--orange);font-weight:700;">✓</span> Конфиденциально
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- MODAL: Разбор ситуации €100 -->
+<div class="hs-modal-overlay" id="modal-plan100" onclick="closePlanModal('plan100', event)">
+  <div class="hs-modal-box">
+    <button class="hs-modal-close" onclick="closePlanModal('plan100')" aria-label="Закрыть">✕</button>
+    <div class="hs-modal-title">Разбор ситуации — €100</div>
+    <p class="hs-modal-sub">Разовая сессия 90 минут · Свяжемся в течение 12 часов</p>
+    <div class="hs-form-frame" data-region="eu1" data-form-id="f35fdc18-8d47-4c92-aa19-feaf686ed283" data-portal-id="144885667"></div>
+  </div>
+</div>
+
+<!-- MODAL: Маркетинговый план €350 -->
+<div class="hs-modal-overlay" id="modal-plan350" onclick="closePlanModal('plan350', event)">
+  <div class="hs-modal-box">
+    <button class="hs-modal-close" onclick="closePlanModal('plan350')" aria-label="Закрыть">✕</button>
+    <div class="hs-modal-title">Маркетинговый план — €350/мес</div>
+    <p class="hs-modal-sub">4 сессии + сопровождение · Свяжемся в течение 12 часов</p>
+    <div class="hs-form-frame" data-region="eu1" data-form-id="acf9c456-3a9b-4ad6-92de-a1504a119427" data-portal-id="144885667"></div>
+  </div>
+</div>
+
+<!-- MODAL: Сопровождение €949 -->
+<div class="hs-modal-overlay" id="modal-plan949" onclick="closePlanModal('plan949', event)">
+  <div class="hs-modal-box">
+    <button class="hs-modal-close" onclick="closePlanModal('plan949')" aria-label="Закрыть">✕</button>
+    <div class="hs-modal-title">Сопровождение — €949 / 3 мес</div>
+    <p class="hs-modal-sub">12 сессий · Стратегия + контроль · Свяжемся в течение 12 часов</p>
+    <div class="hs-form-frame" data-region="eu1" data-form-id="64e8ea55-59a4-4ae8-91b2-6efa5498c165" data-portal-id="144885667"></div>
+  </div>
+</div>
+
+<!-- MODAL: Общий (для кнопок не привязанных к тарифу) -->
+<div class="hs-modal-overlay" id="hsModal" onclick="closeModalOutside(event)">
+  <div class="hs-modal-box">
+    <button class="hs-modal-close" onclick="closeModal()" aria-label="Закрыть">✕</button>
+    <div class="hs-modal-title">Записаться на консультацию</div>
+    <p class="hs-modal-sub">Заполните форму — свяжемся в течение 24 часов</p>
+    <div class="hs-form-frame" data-region="eu1" data-form-id="ed8bf19a-da60-48fe-a9ed-d6cda89128ea" data-portal-id="144885667"></div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">MARKET EXPERT <em>agency</em></div>
-  <p>© 2025 · Маркетинговые консультации · Прага, Чехия</p>
-  <p style="font-size:11px">marketexpert.cz</p>
+  <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+    <p>© 2025 · Маркетинговые консультации · Прага, Чехия &nbsp;·&nbsp; <a href="#" style="color:rgba(255,255,255,0.5);text-decoration:underline;">Политика файлов cookie</a></p>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center;">
+      <a href="tel:+420705995770" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.65);text-decoration:none;font-size:13px;transition:color 0.2s;" onmouseover="this.style.color='#E8941A'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">
+        <span style="width:28px;height:28px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">📞</span>
+        +420 705 995 770
+      </a>
+      <a href="/cdn-cgi/l/email-protection#0c6f6362786d6f784c616d7e67697869747c697e78226f76" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.65);text-decoration:none;font-size:13px;transition:color 0.2s;" onmouseover="this.style.color='#E8941A'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">
+        <span style="width:28px;height:28px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">✉️</span>
+        <span class="__cf_email__" data-cfemail="adcec2c3d9ccced9edc0ccdfc6c8d9c8d5ddc8dfd983ced7">[email&#160;protected]</span>
+      </a>
+    </div>
+  </div>
+  <a href="https://marketexpert.cz" target="_blank" style="font-size:11px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">marketexpert.cz ↗</a>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── Общий модал (кнопки не привязанные к тарифу) ──
+function openModal() {
+  document.getElementById('hsModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  try { gtag('event', 'form_open', { event_category: 'engagement', event_label: 'general' }); } catch(e) {}
+}
+function closeModal() {
+  document.getElementById('hsModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('hsModal')) closeModal();
+}
+
+// ── Модалы для конкретных тарифов ──
+function openPlanModal(plan) {
+  const id = 'modal-' + plan;
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+  try { gtag('event', 'form_open', { event_category: 'engagement', event_label: plan }); } catch(e) {}
+}
+function closePlanModal(plan, e) {
+  const id = 'modal-' + plan;
+  if (!e || e.target === document.getElementById(id)) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+// Закрытие по Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.hs-modal-overlay.open').forEach(m => {
+      m.classList.remove('open');
+    });
+    document.body.style.overflow = '';
+  }
+});
+
+// ── Scroll animations via IntersectionObserver ──
+const animTargets = document.querySelectorAll('.reveal, .reveal-left, .stagger');
+
+if ('IntersectionObserver' in window) {
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        scrollObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+
+  animTargets.forEach(el => scrollObserver.observe(el));
+
+  // Страховка: через 2с показываем всё на случай если observer завис
+  setTimeout(() => {
+    animTargets.forEach(el => el.classList.add('visible'));
+  }, 2000);
+} else {
+  animTargets.forEach(el => el.classList.add('visible'));
+}
 </script>
 </body>
 </html>

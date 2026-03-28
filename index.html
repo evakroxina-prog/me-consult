@@ -1,7 +1,26 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="63ca26d3-5548-42a9-ae0b-672c2c2b97fb" data-blockingmode="auto" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    palette: {
+      popup: { background: "#4e1429", text: "#f2ead8" },
+      button: { background: "#E8941A", text: "#ffffff" }
+    },
+    theme: "edgeless",
+    position: "bottom",
+    content: {
+      message: "Мы используем файлы cookie для улучшения работы сайта.",
+      dismiss: "Принять",
+      link: "Политика cookie",
+      href: "https://marketexpert.cz/cookie-policy"
+    }
+  });
+});
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 

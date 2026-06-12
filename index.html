@@ -141,9 +141,17 @@ body {
 /* ── Шапка (единый формат M:E) ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: var(--burg);
+  background: linear-gradient(to bottom, rgba(107, 31, 58, 0.72), rgba(107, 31, 58, 0.18) 78%, transparent);
+  transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 48px; height: 68px;
+}
+nav.scrolled,
+nav.nav-open {
+  background: var(--burg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.28);
 }
 .nav-logo { min-width: 0; }
 .nav-links { display: flex; align-items: center; gap: 32px; }
@@ -419,7 +427,7 @@ section { padding: 80px 48px; }
 }
 .plans .plan.plan-anim-item::before {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(232,148,26,.12) 0%, rgba(255,255,255,.35) 42%, transparent 72%);
+  background: linear-gradient(135deg, rgba(232,148,26,.14) 0%, rgba(255,255,255,.05) 42%, transparent 72%);
   opacity: 0; transition: opacity .4s ease; pointer-events: none; z-index: 0;
 }
 .plans .plan.plan-anim-item::after {
@@ -544,6 +552,35 @@ section { padding: 80px 48px; }
 .rev-track:hover { animation-play-state: paused; }
 @keyframes rev-flow {
   to { transform: translateX(-50%); }
+}
+@media (max-width: 768px) {
+  .rev-marquee {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 20px;
+    touch-action: pan-x;
+    -webkit-mask-image: none;
+    mask-image: none;
+    cursor: grab;
+  }
+  .rev-marquee:active { cursor: grabbing; }
+  .rev-marquee--dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+  }
+  .rev-track {
+    animation: none !important;
+    transform: none !important;
+    padding: 0 20px;
+  }
+  .rev-card {
+    scroll-snap-align: start;
+    min-width: min(300px, 84vw);
+    max-width: min(300px, 84vw);
+  }
 }
 .rev-card {
   min-width: 320px;
@@ -873,6 +910,11 @@ html.form-modal-open { overflow: hidden; }
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') closeLangMenus();
   });
+  function updateNavScroll() {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }
+  window.addEventListener('scroll', updateNavScroll, { passive: true });
+  updateNavScroll();
 })();
 </script>
 
@@ -922,7 +964,7 @@ html.form-modal-open { overflow: hidden; }
       <div class="whom-card">
         <div class="whom-icon">🏢</div>
         <h3>Владелец бизнеса</h3>
-        <p>Бизнес испытывает трудности, не знаете как двигаться дальше. Поможем найти выход и конкретный план действий.</p>
+        <p>Бизнес испытывает трудности, не знаете, как двигаться дальше. Поможем найти выход и конкретный план действий.</p>
         <span class="tag">Антикризис</span>
       </div>
       <div class="whom-card">
@@ -934,13 +976,13 @@ html.form-modal-open { overflow: hidden; }
       <div class="whom-card">
         <div class="whom-icon">🚀</div>
         <h3>Стартап</h3>
-        <p>Запускаете проект или хотите выйти на новый рынок. Помогу разработать план выхода и избежать типичных ошибок.</p>
+        <p>Запускаете проект или хотите выйти на новый рынок. Поможем разработать план выхода и избежать типичных ошибок.</p>
         <span class="tag">Выход на рынок</span>
       </div>
       <div class="whom-card">
         <div class="whom-icon">🎯</div>
         <h3>Маркетолог</h3>
-        <p>Работаете над проектом и нужен свежий взгляд. Помогу найти решение сложной задачи для вашего клиента.</p>
+        <p>Работаете над проектом и нужен свежий взгляд. Поможем найти решение сложной задачи для вашего клиента.</p>
         <span class="tag">Экспертная помощь</span>
       </div>
     </div>
@@ -972,7 +1014,7 @@ html.form-modal-open { overflow: hidden; }
     </div>
     <div class="problem-card">
       <div class="problem-q">«Сайт есть, но заявок почти нет»</div>
-      <div class="problem-a">Разберём воронку от первого касания до заявки и найдём где теряете аудиторию.</div>
+      <div class="problem-a">Разберём воронку от первого касания до заявки и найдём, где теряете аудиторию.</div>
     </div>
     <div class="problem-card">
       <div class="problem-q">«Хочу выйти на чешский / европейский рынок»</div>
@@ -980,7 +1022,7 @@ html.form-modal-open { overflow: hidden; }
     </div>
     <div class="problem-card">
       <div class="problem-q">«Нужно срочно найти решение для клиента»</div>
-      <div class="problem-a">Для маркетологов — разбор кейса и свежий взгляд. Записываемся в течение 24 часов.</div>
+      <div class="problem-a">Для маркетологов — разбор кейса и свежий взгляд. Свяжемся в течение 24 часов.</div>
     </div>
   </div>
   <div class="reveal" style="margin-top:40px;text-align:center;">
@@ -994,7 +1036,7 @@ html.form-modal-open { overflow: hidden; }
   <div class="reveal" style="margin-bottom:56px">
     <div class="section-label">Как работаем</div>
     <h2 class="section-title">Три шага до результата</h2>
-    <p class="section-sub">Никакой воды — только конкретные действия с измеримым результатом.</p>
+    <p class="section-sub">Только конкретные действия с измеримым результатом.</p>
   </div>
   <div class="steps stagger">
     <div class="step">
@@ -1012,7 +1054,7 @@ html.form-modal-open { overflow: hidden; }
     <div class="step">
       <div class="step-num">03</div>
       <h3>Поддержка</h3>
-      <p>Остаемся на связи во время внедрения — помогаем, отвечаем на вопросы, корректируем курс если что-то пошло не так.</p>
+      <p>Остаемся на связи во время внедрения — помогаем, отвечаем на вопросы, корректируем курс, если что-то пошло не так.</p>
       <div class="step-result">Уверенность в процессе реализации</div>
     </div>
   </div>
@@ -1080,7 +1122,7 @@ html.form-modal-open { overflow: hidden; }
     <div class="agency-left">
       <div class="section-label">Альтернатива агентству</div>
       <h2>Ищете <span>маркетинговое агентство</span> в Праге?</h2>
-      <p>Прежде чем подписывать контракт на 6 месяцев — убедитесь, что вы понимаете, что именно вам нужно. Многие клиенты переплачивают агентству за работу, которую можно сделать самостоятельно — зная стратегию.</p>
+      <p>Прежде чем подписывать контракт на 6 месяцев — убедитесь, что вы понимаете, что именно вам нужно. Многие клиенты переплачивают агентству за работу, которую можно сделать самостоятельно, если знать стратегию.</p>
       <div class="agency-compare">
         <div class="compare-thead">
           <div class="compare-head">Агентство</div>
@@ -1099,7 +1141,7 @@ html.form-modal-open { overflow: hidden; }
           <div class="compare-cell good"><span class="compare-tag">M:E</span>План готов за 90 минут</div>
         </div>
         <div class="compare-pair">
-          <div class="compare-cell bad"><span class="compare-tag">Агентство</span>Вы не понимаете, что происходит</div>
+          <div class="compare-cell bad"><span class="compare-tag">Агентство</span>Нет ясности в процессах</div>
           <div class="compare-cell good"><span class="compare-tag">M:E</span>Вы управляете процессом</div>
         </div>
       </div>
@@ -1421,6 +1463,50 @@ if ('IntersectionObserver' in window) {
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
   io.observe(grid);
+})();
+
+(function initReviewsTouchScroll() {
+  var marquee = document.querySelector('.rev-marquee');
+  var track = document.querySelector('.rev-track');
+  if (!marquee || !track) return;
+
+  var mq = window.matchMedia('(max-width: 768px)');
+  var drag = null;
+
+  function applyMode() {
+    if (mq.matches) {
+      track.style.animation = 'none';
+      track.style.transform = 'none';
+    } else {
+      track.style.animation = '';
+      track.style.transform = '';
+      marquee.classList.remove('rev-marquee--dragging');
+    }
+  }
+
+  marquee.addEventListener('pointerdown', function(e) {
+    if (!mq.matches || e.pointerType === 'mouse') return;
+    drag = { x: e.clientX, scroll: marquee.scrollLeft, id: e.pointerId };
+    marquee.classList.add('rev-marquee--dragging');
+    marquee.setPointerCapture(e.pointerId);
+  });
+
+  marquee.addEventListener('pointermove', function(e) {
+    if (!drag || drag.id !== e.pointerId) return;
+    marquee.scrollLeft = drag.scroll - (e.clientX - drag.x);
+  });
+
+  function endDrag(e) {
+    if (!drag || (e && drag.id !== e.pointerId)) return;
+    drag = null;
+    marquee.classList.remove('rev-marquee--dragging');
+    if (e) marquee.releasePointerCapture(e.pointerId);
+  }
+
+  marquee.addEventListener('pointerup', endDrag);
+  marquee.addEventListener('pointercancel', endDrag);
+  mq.addEventListener('change', applyMode);
+  applyMode();
 })();
 
 // FAQ — показать остальные вопросы

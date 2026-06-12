@@ -222,6 +222,7 @@ nav.nav-open .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-
   overflow: hidden;
   display: flex; align-items: center;
   padding: 100px 48px 60px;
+  scroll-margin-top: 68px;
 }
 .hero-bg {
   position: absolute;
@@ -797,12 +798,13 @@ html.form-modal-open { overflow: hidden; }
 
 </style>
 <link rel="stylesheet" href="footer.css">
+<link rel="stylesheet" href="../form-success.css">
 <link rel="stylesheet" href="cookie.css">
 </head>
 <body>
 
 <nav aria-label="Menu stránky">
-  <a href="https://marketexpert.cz/cs/" class="nav-logo nav-brand">
+  <a href="#hero" class="nav-logo nav-brand">
     <img src="logo.png" alt="M:E agency" class="nav-brand__img" decoding="async" onerror="this.onerror=null;this.src='logo.svg'">
     <span class="nav-brand__text">M:E <em class="nav-brand__agency">agency</em></span>
   </a>
@@ -878,8 +880,8 @@ html.form-modal-open { overflow: hidden; }
 </script>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg" id="heroBg"></div>
+<section class="hero" id="hero">
+     <div class="hero-bg" id="heroBg"></div>
   <div class="hero-card" style="position:relative;z-index:1;">
     <div class="hero-label">Marketingové konzultace · Praha</div>
     <h1>Vaše firma<br>neroste?<br><span>Vyřešíme to společně</span></h1>
@@ -1366,6 +1368,9 @@ html.form-modal-open { overflow: hidden; }
   </div>
   <div class="site-footer__copy-row">
     <p class="site-footer__copy">© 2026 M:E Agency · Praha · Konzultace</p>
+    <p class="site-footer__crafted">
+      <a href="https://marketexpert.cz/" target="_blank" rel="noopener noreferrer"><span class="site-footer__crafted-label">Created by</span><span class="site-footer__crafted-brand"><span class="site-footer__crafted-me">M:E</span> <em>agency</em></span></a>
+    </p>
   </div>
 </footer>
 
@@ -1449,6 +1454,7 @@ if ('IntersectionObserver' in window) {
     </div>
   </div>
 </div>
+<script src="../form-success.js"></script>
 <script src="me-analytics.js"></script>
 
 <div class="form-modal" id="formModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="leadFormTitle">
@@ -1491,6 +1497,7 @@ if ('IntersectionObserver' in window) {
     mount.innerHTML = '';
     if (location.hash === '#order') history.replaceState(null, '', location.pathname + location.search);
   }
+  window.closeModal = closeModal;
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[href="#order"]');
     if (link) { e.preventDefault(); openModal(link.getAttribute('data-pkg')); return; }
@@ -1533,9 +1540,14 @@ if ('IntersectionObserver' in window) {
             package_name: pkgInput ? pkgInput.value : ''
           });
         }
-        btn.innerHTML = '<span>✓ Žádost odeslána</span>';
+        btn.innerHTML = '<span>✓ Poptávka odeslána</span>';
         btn.classList.add('is-submitted');
+        btn.disabled = true;
         form.reset();
+        if (typeof window.closeModal === 'function') window.closeModal();
+        if (typeof window.showFormSuccess === 'function') {
+          window.showFormSuccess({ lang: 'cs', email: 'consult@marketexpert.cz' });
+        }
         return;
       }
       var msg = 'Nepodařilo se odeslat poptávku.';
